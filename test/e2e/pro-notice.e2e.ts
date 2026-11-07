@@ -4,7 +4,7 @@ import { pluginId } from './load';
 // A free user runs the Pro command "Audit chosen CSV files (Pro)". The shared Pro notice must show, with a
 // Sponsor on GitHub button that opens the one-time tab of the Sponsors page with metadata_source=<plugin id>. No audit dialog opens.
 const LEAD = 'Combined audit reports and saved export policies are Pro features.';
-const PITCH = 'Sponsor on GitHub, then sign in from the plugin settings.';
+const PITCH = 'One payment turns on Pro in every NoteMods plugin. Sponsor on GitHub, then sign in from the plugin settings.';
 
 interface Shown { text: string; buttons: number }
 async function notices(): Promise<Shown[]> {
@@ -33,7 +33,7 @@ describe(`${pluginId} Pro notice`, function () {
 			try { (w.activeWindow.document.querySelector('.notice .pf-pro-notice-sponsor') as HTMLElement).click(); } finally { w.open = original; }
 			return opened;
 		});
-		expect(url).toBe(`https://github.com/sponsors/theluckystrike?frequency=one-time&metadata_source=${pluginId}`);
+		expect(url).toBe(`https://github.com/sponsors/theluckystrike?frequency=one-time&metadata_source=${pluginId}-all`);
 		// The free user gets no audit dialog.
 		expect(await browser.execute(() => document.querySelector('.csv-shield-modal'))).toBeNull();
 	});
