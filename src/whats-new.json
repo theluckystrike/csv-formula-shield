@@ -1,7 +1,7 @@
 {
 	"id": "csv-formula-shield",
 	"name": "CSV Formula Shield",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"changes": [
 		"The Pro notice of CSV Formula Shield now says that one payment turns on Pro in every NoteMods plugin."
 	],
